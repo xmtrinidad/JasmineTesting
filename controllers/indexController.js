@@ -27,7 +27,7 @@ exports.post_form = (req, res) => {
   }
 
   user.submitData().then((data) => {
-    res.render('greeting', data);
+    res.render('greeting', { name: user.name, password: user.pw });
   });
 
 };

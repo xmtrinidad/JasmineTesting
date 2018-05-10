@@ -22,7 +22,6 @@ describe("User name", () => {
 
 describe("User password", () => {
   beforeEach(() => {
-    const preHash = user.pw;
     user = new User('Xavier', '1234');
   });
 
@@ -31,9 +30,10 @@ describe("User password", () => {
   });
 
   it("should be hashed before saving to db", () => {
-    user._hashPassword().then(() => {
-      expect(this.pw).not.toEqual(preHash);
+    user._hashPassword().then((data) => {
+      expect(data.hashedPw).toEqual(data.hash);
     });
   });
+
 
 });

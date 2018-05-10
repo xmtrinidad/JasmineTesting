@@ -32,7 +32,7 @@ class User {
         bcrypt.hash(this.pw, salt, (err, hash) => {
           if (err) throw err;
           this.pw = hash;
-          resolve({ name: this.name, password: this.pw });
+          resolve({ hashedPw: this.pw, hash: hash });
         });
       });
     });
